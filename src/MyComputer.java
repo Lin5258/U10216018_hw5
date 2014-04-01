@@ -33,7 +33,7 @@ public class MyComputer extends JFrame {
 	JButton btnC = new JButton("C");
 	JButton btnDelete = new JButton("<--");
 	JButton btnDot = new JButton(".");
-	
+
 	Compute c = new Compute();
 	
 	
@@ -117,6 +117,9 @@ public class MyComputer extends JFrame {
 		
 		SpecialListener specialListener = new SpecialListener();
 		btnPower.addActionListener(specialListener);
+		
+		//AccountListener accountListener = new AccountListener();
+		//AAP.btn1.addActionListener(accountListener);
 	}
 	
 	public class NumberListener implements ActionListener {
@@ -257,8 +260,21 @@ public class MyComputer extends JFrame {
 			}
 		}
 	}
-
-	public static void main(String[] args) {
+	
+	/**public class AccountListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			MyComputer frame = new MyComputer();
+			frame.setTitle("Computer");
+			frame.pack();
+			//frame.setSize(300, 300);
+			frame.setLocationRelativeTo(null);
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setVisible(true);
+		}	
+	}*/
+	
+	/**public static void main(String[] args) {
 		MyComputer frame = new MyComputer();
 		frame.setTitle("Computer");
 		frame.pack();
@@ -266,6 +282,7 @@ public class MyComputer extends JFrame {
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
-	}
+
+	}*/
 
 }

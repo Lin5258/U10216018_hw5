@@ -156,8 +156,8 @@ public class MyComputer extends JFrame {
 				t1.setText(t1.getText() + "00");
 				l1.setText(l1.getText() + "00");
 			} else if(e.getSource() == btnDelete) {
+				//l1.setText(l1.getText() - t1.getText());
 				t1.setText(null);
-				l1.setText(l1.getText() + " = ");
 			} else if(e.getSource() == btnDot) {
 				t1.setText(t1.getText() + ".");
 				l1.setText(l1.getText() + ".");
@@ -180,6 +180,7 @@ public class MyComputer extends JFrame {
 			if(e.getSource() == btnPlus) {
 				number = Double.parseDouble(t1.getText());
 				t1.setText(null);
+				l1.setText(l1.getText() + " + ");
 				if(c.number1 == 0)
 					c.setNumber1(number);
 				else {
@@ -190,6 +191,7 @@ public class MyComputer extends JFrame {
 			} else if (e.getSource() == btnMinus) {
 				number = Double.parseDouble(t1.getText());
 				t1.setText(null);
+				l1.setText(l1.getText() + " - ");
 				if(c.number1 == 0)
 					c.setNumber1(number);
 				else {
@@ -200,6 +202,7 @@ public class MyComputer extends JFrame {
 			} else if (e.getSource() == btnTimes) {
 				number = Double.parseDouble(t1.getText());
 				t1.setText(null);
+				l1.setText("(" +l1.getText() + ")" + " * ");
 				if(c.number1 == 0)
 					c.setNumber1(number);
 				else {
@@ -210,6 +213,7 @@ public class MyComputer extends JFrame {
 			} else if (e.getSource() == btnDivided) {
 				number = Double.parseDouble(t1.getText());
 				t1.setText(null);
+				l1.setText("(" + l1.getText() + ")" + " / ");
 				if(c.number1 == 0)
 					c.setNumber1(number);
 				else {
@@ -220,6 +224,7 @@ public class MyComputer extends JFrame {
 			} else if (e.getSource() == btnEqual) {
 				number = Double.parseDouble(t1.getText());
 				t1.setText(null);
+				l1.setText(l1.getText() + " = ");
 				if(c.number1 == 0)
 					c.setNumber1(number);
 				else {
@@ -227,6 +232,7 @@ public class MyComputer extends JFrame {
 					c.setNumber1(c.caculate());
 				} 
 				t1.setText(""+ c.getNumber1());
+				l1.setText(l1.getText() + c.getNumber1());
 				c.setNumber1(0);
 			}
 			

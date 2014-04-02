@@ -117,6 +117,11 @@ public class MyComputer extends JFrame {
 		
 		SpecialListener specialListener = new SpecialListener();
 		btnPower.addActionListener(specialListener);
+		btnSin.addActionListener(specialListener);
+		btnCos.addActionListener(specialListener);
+		btnTan.addActionListener(specialListener);
+		btnLog.addActionListener(specialListener);
+		btnOrder.addActionListener(specialListener);
 		
 		//AccountListener accountListener = new AccountListener();
 		//AAP.btn1.addActionListener(accountListener);
@@ -165,10 +170,11 @@ public class MyComputer extends JFrame {
 				t1.setText(t1.getText() + ".");
 				l1.setText(l1.getText() + ".");
 			} else if(e.getSource() == btnC) {
-				t1.setText(null);
-				l1.setText(null);
+				t1.setText("");
+				l1.setText("");
 				c.setNumber1(0);
 				c.setNumber2(0);
+				c.setSignal(null);
 			}
 		}
 	}
@@ -250,6 +256,7 @@ public class MyComputer extends JFrame {
 			if(e.getSource() == btnPower) {
 				number = Double.parseDouble(t1.getText());
 				t1.setText(null);
+				l1.setText(l1.getText() + "^");
 				if(c.number1 == 0)
 					c.setNumber1(number);
 				else {
@@ -257,7 +264,38 @@ public class MyComputer extends JFrame {
 					c.setNumber1(c.caculate());
 				}
 				c.setSignal("Power");
-			}
+			} else if (e.getSource() == btnSin) {
+				t1.setText("");
+				l1.setText("Sin");
+				c.setNumber1(1);
+				c.setNumber2(0);
+				c.setSignal("Sin");
+			} else if (e.getSource() == btnCos) {
+				t1.setText("");
+				l1.setText("Cos");
+				c.setNumber1(1);
+				c.setNumber2(0);
+				c.setSignal("Cos");
+			} else if (e.getSource() == btnTan) {
+				t1.setText("");
+				l1.setText("Tan");
+				c.setNumber1(1);
+				c.setNumber2(0);
+				c.setSignal("Tan");
+			} else if (e.getSource() == btnLog) {
+				t1.setText("");
+				l1.setText("Log");
+				c.setNumber1(1);
+				c.setNumber2(0);
+				c.setSignal("Log");
+			} else if (e.getSource() == btnOrder) {
+				double number = Double.parseDouble(t1.getText());
+				c.setNumber1(number);
+				c.setNumber2(0);
+				c.setSignal("Order");
+				t1.setText("" + c.caculate());
+				l1.setText(l1.getText() + "! = " + c.caculate());
+			} 
 		}
 	}
 	

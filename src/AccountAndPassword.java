@@ -3,8 +3,8 @@ import java.awt.*;
 import javax.swing.*;
 
 import java.awt.event.*;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+
+import java.io.*;
 
 
 public class AccountAndPassword extends JFrame {
@@ -31,10 +31,17 @@ public class AccountAndPassword extends JFrame {
 	}
 	
 	public class AccountListener implements ActionListener  {
-		
+		java.io.File file =new java.io.File("Account.txt");
 		@Override
-		public void actionPerformed(ActionEvent e) {
-			
+		public void actionPerformed (ActionEvent e) {
+			try {
+				FileWriter output = new FileWriter(file, true);
+				output.write(t1.getText() + " ");
+				output.write(t2.getText() + "\r\n"); 
+				output.close();
+			}catch(Exception ex) {
+				
+			}
 			
 			MyComputer frame = new MyComputer();
 			frame.setTitle("Computer");
@@ -46,7 +53,7 @@ public class AccountAndPassword extends JFrame {
 		}	
 	}
 	
-	public static void main(String[] args) throws IOException {	
+	public static void main(String[] args)  {	
 		AccountAndPassword frame2 = new AccountAndPassword();
 		frame2.setTitle("MyPassword");
 		frame2.setSize(210, 200);

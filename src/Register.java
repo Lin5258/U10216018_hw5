@@ -3,9 +3,11 @@ import java.awt.*;
 import javax.swing.*;
 
 import java.awt.event.*;
+import java.io.*;
 
 
 public class Register extends JFrame {
+	//JFrame frame = new Register();
 	JLabel l1 = new JLabel("Account");
 	JLabel l2 = new JLabel("Password");
 	JLabel l3 = new JLabel("Email");
@@ -27,15 +29,38 @@ public class Register extends JFrame {
 		add(t3);
 		add(btn1);
 		add(btn2);
+		
+		RegisterListener registerListener = new RegisterListener();
+		btn1.addActionListener(registerListener);
+		
+		CancelListener cancelListener = new CancelListener();
+		btn2.addActionListener(cancelListener);
 	}
 	
 	public class RegisterListener implements ActionListener {
+		java.io.File file = new java.io.File("Account.txt");
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
-			
+			try {
+				FileWriter output = new FileWriter(file, true);
+				output.write(t1.getText() + " ");
+				output.write(t2.getText() + " "); 
+				output.write(t3.getText() + " ");
+				AccountAndPassword.setRegister();
+				output.close();
+			}catch(Exception ex) {
+				
+			}
 		}
-		
+	}
+	
+	public class CancelListener implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			btn1.setText(null);
+			btn2.setText(null);
+			AccountAndPassword.setRegister();
+		}
 	}
 	
 	/**public static void main(String[] args) {

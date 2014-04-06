@@ -6,10 +6,10 @@ import java.awt.event.*;
 import java.io.*;
 import java.util.Scanner;
 import java.lang.*;
-
+/**Let user can sign up and sign in.*/
 public class AccountAndPassword extends JFrame {
-	static AccountAndPassword frame2 = new AccountAndPassword();
-	static Register frame3 = new Register();
+	static AccountAndPassword frame2 = new AccountAndPassword(); //Construct AccountAndPassword.
+	static Register frame3 = new Register();					 //Construct Register.
 	JLabel l1 = new JLabel("Account ");
 	JLabel l2 = new JLabel("Password");
 	JTextField t1 = new JTextField(10);
@@ -19,10 +19,13 @@ public class AccountAndPassword extends JFrame {
 	
 	
 	AccountAndPassword() {
+		//Set layout manager.
 		FlowLayout layout = new FlowLayout(FlowLayout.RIGHT, 10, 10);
 		setLayout(layout);
 		t2.setEchoChar('*');
-		
+		//Set label color.
+		l1.setForeground(Color.BLUE);
+		l2.setForeground(Color.BLUE);
 		add(l1);
 		add(t1);
 		add(l2);
@@ -30,9 +33,11 @@ public class AccountAndPassword extends JFrame {
 		add(btn1);
 		add(btn2);
 		
+		//Create listener.
 		AccountListener accountListener = new AccountListener();
 		btn1.addActionListener(accountListener);
 		
+		//when user press sign up button display register frame.
 		btn2.addActionListener( new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -52,14 +57,7 @@ public class AccountAndPassword extends JFrame {
 		java.io.File file = new java.io.File("Account.txt");
 		@Override
 		public void actionPerformed (ActionEvent e) {
-			/**try {
-				FileWriter output = new FileWriter(file, true);
-				output.write(t1.getText() + " ");
-				output.write(t2.getText() + "\r\n"); 
-				output.close();
-			}catch(Exception ex) {
-				
-			}*/
+			//Check account and password.
 			String Account = t1.getText();
 			String Password = t2.getText();
 			boolean isAccount = false;
@@ -79,7 +77,7 @@ public class AccountAndPassword extends JFrame {
 			} catch (FileNotFoundException e1) {
 				
 			}
-			
+			//if is correct then display computer frame.
 			if(isAccount) {
 				MyComputer frame = new MyComputer();
 				frame.setTitle("Computer");
@@ -99,7 +97,7 @@ public class AccountAndPassword extends JFrame {
 	
 	public static void main(String[] args)  {	
 		//AccountAndPassword frame2 = new AccountAndPassword();
-		frame2.setTitle("MyPassword");
+		frame2.setTitle("SIGN IN");
 		frame2.setSize(210, 150);
 		frame2.setLocationRelativeTo(null);
 		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

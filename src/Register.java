@@ -5,9 +5,8 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.io.*;
 
-
+/**Build register.*/
 public class Register extends JFrame {
-	//JFrame frame = new Register();
 	JLabel l1 = new JLabel("Account");
 	JLabel l2 = new JLabel("Password");
 	JLabel l3 = new JLabel("Email");
@@ -18,6 +17,7 @@ public class Register extends JFrame {
 	JButton btn2 = new JButton("Cancel");
 	
 	Register() {
+		//Set layout manager.
 		GridLayout layout = new GridLayout(4, 2);
 		setLayout(layout);
 		
@@ -30,6 +30,7 @@ public class Register extends JFrame {
 		add(btn1);
 		add(btn2);
 		
+		//Create listener.
 		RegisterListener registerListener = new RegisterListener();
 		btn1.addActionListener(registerListener);
 		
@@ -41,6 +42,7 @@ public class Register extends JFrame {
 		java.io.File file = new java.io.File("Account.txt");
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			//Let user can create account and record users account and password.
 			try {
 				FileWriter output = new FileWriter(file, true);
 				output.write(t1.getText() + " ");
@@ -62,13 +64,4 @@ public class Register extends JFrame {
 			AccountAndPassword.setRegister();
 		}
 	}
-	
-	/**public static void main(String[] args) {
-		Register frame = new Register();
-		frame.setTitle("Register");
-		frame.pack();
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-	}*/
 }

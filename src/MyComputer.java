@@ -5,7 +5,9 @@ import javax.swing.*;
 
 import java.awt.event.*;
 
+/**Build computer*/
 public class MyComputer extends JFrame {
+	//Create buttons, text fields, labels. 
 	JTextField t1 = new JTextField();
 	JLabel l1 = new JLabel();
 	JButton btn1 = new JButton("1");
@@ -38,10 +40,11 @@ public class MyComputer extends JFrame {
 	
 	
 	MyComputer() {
+		//Set layout manager.
 		FlowLayout layout = new FlowLayout(FlowLayout.CENTER, 10, 10);
 		setLayout(layout);
-		//Font f1 = new Font("SansSerif", Font.BOLD, 16);
 		
+		//Set panel 1.
 		JPanel p1 = new JPanel();
 		p1.setLayout(new GridLayout(5, 3));
 		p1.setPreferredSize(new Dimension(200, 225));
@@ -60,7 +63,8 @@ public class MyComputer extends JFrame {
 		p1.add(btnC);
 		p1.add(btnDelete);
 		p1.add(btnDot);
-
+		
+		//Set panel 2.
 		JPanel p2 = new JPanel(new GridLayout(5, 2));
 		p2.setPreferredSize(new Dimension(120, 225));
 		p2.add(btnPlus);
@@ -74,6 +78,7 @@ public class MyComputer extends JFrame {
 		p2.add(btnPower);
 		p2.add(btnOrder);
 		
+		//Set panel 3.
 		JPanel p3 = new JPanel(new GridLayout(2, 1));
 		t1.setBackground(Color.WHITE);
 		t1.setPreferredSize(new Dimension(180, 35));
@@ -84,7 +89,7 @@ public class MyComputer extends JFrame {
 		p3.add(l1);
 		p3.add(t1);
 		
-		
+		//Add p1, p2, p3 to panel 4
 		JPanel p4 = new JPanel(new BorderLayout());
 		p4.add(p3, BorderLayout.NORTH);
 		p4.add(p1, BorderLayout.CENTER);
@@ -92,6 +97,7 @@ public class MyComputer extends JFrame {
 		
 		add(p4);
 		
+		//set listener.
 		NumberListener numberListener = new NumberListener();
 		btn1.addActionListener(numberListener);
 		btn2.addActionListener(numberListener);
@@ -122,9 +128,6 @@ public class MyComputer extends JFrame {
 		btnTan.addActionListener(specialListener);
 		btnLog.addActionListener(specialListener);
 		btnOrder.addActionListener(specialListener);
-		
-		//AccountListener accountListener = new AccountListener();
-		//AAP.btn1.addActionListener(accountListener);
 	}
 	
 	public class NumberListener implements ActionListener {
@@ -164,7 +167,6 @@ public class MyComputer extends JFrame {
 				t1.setText(t1.getText() + "00");
 				l1.setText(l1.getText() + "00");
 			} else if(e.getSource() == btnDelete) {
-				//l1.setText(l1.getText() - t1.getText());
 				t1.setText(null);
 			} else if(e.getSource() == btnDot) {
 				t1.setText(t1.getText() + ".");
@@ -181,8 +183,6 @@ public class MyComputer extends JFrame {
 	
 	public class SignalListener implements ActionListener {
 		double number;
-		
-		
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -242,7 +242,7 @@ public class MyComputer extends JFrame {
 				} 
 				t1.setText(""+ c.getNumber1());
 				l1.setText(l1.getText() + c.getNumber1());
-				c.setNumber1(0);
+				//c.setNumber1(0);
 			}
 			
 		}
@@ -298,29 +298,4 @@ public class MyComputer extends JFrame {
 			} 
 		}
 	}
-	
-	/**public class AccountListener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			MyComputer frame = new MyComputer();
-			frame.setTitle("Computer");
-			frame.pack();
-			//frame.setSize(300, 300);
-			frame.setLocationRelativeTo(null);
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			frame.setVisible(true);
-		}	
-	}*/
-	
-	/**public static void main(String[] args) {
-		MyComputer frame = new MyComputer();
-		frame.setTitle("Computer");
-		frame.pack();
-		//frame.setSize(300, 300);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-
-	}*/
-
 }

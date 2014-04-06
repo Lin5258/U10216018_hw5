@@ -1,4 +1,4 @@
-
+/**Compute function*/
 public class Compute {
 	double number1 = 0;
 	double number2 = 0;
